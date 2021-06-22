@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "ocr-pdf-worker"
+version = "0.1.0"
+description = ""
+authors = ["jzd <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pymysql = "^1.0.2"
+
+[tool.poetry.dev-dependencies]
+
+[[tool.poetry.source]]
+name = "douban"
+url = "https://mirrors.aliyun.com/pypi/simple"
+# url = "http://192.168.186.125:8081/repository/pypi/simple"
+default = true
+
+[[tool.flit.source]]
+name = "douban"
+url = "https://mirrors.aliyun.com/pypi/simple"
+# url = "http://192.168.186.125:8081/repository/pypi/simple"
+default = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

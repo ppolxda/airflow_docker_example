@@ -1,0 +1,7 @@
+--index http://192.168.186.125:8081/repository/pypi/pypi/
+
+--index-url http://192.168.186.125:8081/repository/pypi/simple/
+
+--trusted-host 192.168.186.125:8081
+
+pymysql==1.0.2
