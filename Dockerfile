@@ -20,14 +20,27 @@ ENV PYTHONDONTWRITEBYTECODE=1
 # Turns off buffering for easier container logging
 ENV PYTHONUNBUFFERED=1
 
+ENV PYPI_TRUSTED=mirrors.aliyun.com
+ENV PYPI_URL=http://mirrors.aliyun.com/pypi/simple
+ENV POETRY_VERSION=1.1.7
+
+ENV PATH="$POETRY_HOME/bin:$VENV_PATH/bin:$PATH"
+ENV REQUIREMENTS_PATH=./requirements.txt
+
 ENV AIRFLOW_UID=1000
 ENV AIRFLOW_GID=0
 
 
 # WORKDIR /opt/airflow/dags
+# COPY depends /app/depends
+COPY pyproject.toml ./pyproject.toml
+COPY poetry.lock ./poetry.lock
 COPY ./depands /depands
 COPY ./dags /opt/airflow/dags
 COPY ./plugins /opt/airflow/plugins
+
+RUN poetry export -f requirements.txt --output ${REQUIREMENTS_PATH} --without-hashes
+RUN python -m pip install --user --trusted-host ${PYPI_TRUSTED} -r ${REQUIREMENTS_PATH}
 
 # Install pip requirements
 # COPY requirements.dev.txt ./requirements.txt

@@ -1,27 +1,25 @@
 [tool.poetry]
-name = "ocr-pdf-worker"
+name = "worker"
 version = "0.1.0"
 description = ""
-authors = ["jzd <you@example.com>"]
+authors = ["jzd <ppol850564@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-apache-airflow = {extras = ["all"], version = "^2.1.0"}
 
 [tool.poetry.dev-dependencies]
 bandit = "^1.7.0"
 pytest = "^6.2.4"
+apache-airflow = {extras = ["all"], version = "^2.1.2"}
 
 [[tool.poetry.source]]
 name = "aliyun"
 url = "https://mirrors.aliyun.com/pypi/simple"
-# url = "http://192.168.186.125:8081/repository/pypi/simple"
 default = true
 
 [[tool.flit.source]]
 name = "aliyun"
 url = "https://mirrors.aliyun.com/pypi/simple"
-# url = "http://192.168.186.125:8081/repository/pypi/simple"
 default = true
 
 [build-system]
